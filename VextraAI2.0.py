@@ -8,6 +8,27 @@ import uuid
 import sqlite3
 from datetime import datetime
 
+# ==========================================
+# 1. SCROLLABLE CHAT BOX SETUP
+# ==========================================
+
+# A container frame to keep the text area and the scrollbar locked together
+chat_frame = tk.Frame(root)
+chat_frame.pack(padx=10, pady=10, fill=tk.BOTH, expand=True)
+
+# The Scrollbar itself (placed on the right side)
+chat_scrollbar = tk.Scrollbar(chat_frame)
+chat_scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
+
+# The Chat Display Box (linked directly to the scrollbar)
+# Note: state='disabled' prevents users from manually typing over your AI text logs
+chat_display = tk.Text(chat_frame, wrap=tk.WORD, yscrollcommand=chat_scrollbar.set, font=("Arial", 11))
+chat_display.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
+chat_display.config(state='disabled') # Lock it initially
+
+# Configure the scrollbar to actually control the text movement
+chat_scrollbar.config(command=chat_display.yview)
+
 # ---------------- VEXTRA CONFIGURATION ----------------
 
 BG = "#151515"
