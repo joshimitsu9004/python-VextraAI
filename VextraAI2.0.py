@@ -24,7 +24,7 @@ chat_scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
 # Note: state='disabled' prevents users from manually typing over your AI text logs
 chat_display = tk.Text(chat_frame, wrap=tk.WORD, yscrollcommand=chat_scrollbar.set, font=("Arial", 11))
 chat_display.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
-chat_display.config(state='normal') # Lock it initially
+chat_display.config(state='enabled') # Lock it initially
 
 # Configure the scrollbar to actually control the text movement
 chat_scrollbar.config(command=chat_display.yview)
