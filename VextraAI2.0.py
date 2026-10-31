@@ -128,6 +128,7 @@ def current_chat():
 
 
 # ---------------- LONG-TERM MEMORY ----------------
+# ---------------- LONG-TERM MEMORY ----------------
 
 def memory_connection():
     conn = sqlite3.connect(MEMORY_DB)
@@ -320,6 +321,8 @@ def open_memory_manager():
     pill_button(actions, "Delete selected", remove_selected).pack(side="left")
     tk.Label(actions, text="Auto-updated from conversations", bg=BG, fg=MUTED, font=FONT_SMALL).pack(side="right")
     refresh_memories()
+
+
 
 
 # ---------------- PERSONALITY SETTINGS ----------------
